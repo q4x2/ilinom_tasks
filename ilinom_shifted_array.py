@@ -1,7 +1,6 @@
 def find_key_index(array_shifted, key) -> int:
     low_pointer = 0
     high_pointer = len(array_shifted) - 1
-    key_index = -1
     
     
     def find_pivot(array_shifted, low_pointer, high_pointer) -> int:
@@ -42,8 +41,6 @@ def find_key_index(array_shifted, key) -> int:
         return pivot
 
     if key > array_shifted[0]:
-        key_index = find_key_binary(array_shifted, low_pointer, pivot-1, key)
+        return find_key_binary(array_shifted, low_pointer, pivot-1, key)
     else: 
-        key_index = find_key_binary(array_shifted, pivot+1, high_pointer, key)
-    
-    return key_index
+        return find_key_binary(array_shifted, pivot+1, high_pointer, key)
